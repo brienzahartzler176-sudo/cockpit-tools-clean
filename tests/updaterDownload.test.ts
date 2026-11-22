@@ -45,6 +45,7 @@ function candidate(version = '1.3.70') {
 type Candidate = ReturnType<typeof candidate>;
 
 function harness(options: {
+  backgroundChecksEnabled?: boolean;
   check?: () => Promise<Candidate | null>;
   settings?: () => Promise<{ auto_install: boolean }>;
   prepareInfo?: () => Promise<unknown>;
@@ -76,6 +77,9 @@ function harness(options: {
     window: { setInterval(callback: () => void) { timers.push(callback); return timers.length; },
       clearInterval() {}, dispatchEvent() {} },
     async invoke(command: string) {
+      if (command === 'should_check_updates') {
+        return options.backgroundChecksEnabled ?? true;
+      }
       if (command === 'get_update_settings') {
         settingsReads++;
         return options.settings ? options.settings() : { auto_install: true };
@@ -256,10 +260,21 @@ test('automatic download uses the same transaction and already checked handle', 
   assert.equal(h.refs.updateCheckInFlightRef.current, false);
 });
 
+test('manual releases skip startup and hourly updater checks', async () => {
+  const h = harness({ backgroundChecksEnabled: false });
+  const cleanup = h.background();
+  h.poll();
+  await settlePromises();
+  assert.equal(h.settingsReads(), 0);
+  assert.equal(h.checks(), 0);
+  cleanup();
+});
+
 test('effect recreation cannot run a second background check while settings are slow', async () => {
   const settings = deferred<{ auto_install: boolean }>();
   const h = harness({ settings: () => settings.promise });
   const cleanup = h.background(); cleanup(); h.background(); h.poll();
+  await settlePromises();
   assert.equal(h.settingsReads(), 1);
   settings.resolve({ auto_install: true }); await settlePromises();
   assert.equal(h.checks(), 1); assert.equal(h.refs.updateCheckInFlightRef.current, false);
