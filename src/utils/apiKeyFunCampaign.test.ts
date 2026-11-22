@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import type { AnnouncementState } from '../types/announcement';
 import {
   APIKEY_FUN_CAMPAIGN,
@@ -49,29 +49,19 @@ test('cached campaign announcement and unread badge disappear outside the period
   assert.equal(filterApiKeyFunCampaignAnnouncement({ ...state, popupAnnouncement: other }, false).popupAnnouncement, other);
 });
 
-test('remote announcement is available to all versions and languages, with matching dates and affiliate URL', () => {
+test('this edition publishes an empty announcement and sponsor feed', () => {
   const feed = JSON.parse(readFileSync(new URL('../../announcements.json', import.meta.url), 'utf8'));
-  const notices = feed.announcements.filter((item: { id: string }) => item.id === APIKEY_FUN_CAMPAIGN.id);
-  assert.equal(notices.length, 1);
-  const notice = notices[0];
-  assert.equal(notice.targetVersions, '*');
-  assert.deepEqual(notice.targetLanguages, ['*']);
-  assert.equal(notice.createdAt, APIKEY_FUN_CAMPAIGN.startsAt);
-  assert.equal(notice.expiresAt, APIKEY_FUN_CAMPAIGN.expiresAt);
-  assert.equal(notice.action.type, 'url');
-  assert.equal(notice.action.target, APIKEY_FUN_CAMPAIGN.url);
-  assert.equal(notice.popup, false);
-  for (const file of readdirSync(new URL('../locales/', import.meta.url)).filter((name) => name.endsWith('.json'))) {
-    const locale = JSON.parse(readFileSync(new URL(`../locales/${file}`, import.meta.url), 'utf8'));
-    const translated = notice.locales[file.slice(0, -5)];
-    assert.ok(translated, `Missing announcement locale: ${file}`);
-    assert.equal(translated.actionLabel, locale.apiKeyFun.campaign.action);
-    assert.ok(translated.content.includes(locale.apiKeyFun.campaign.period));
-  }
+  assert.deepEqual(feed.announcements, []);
+  assert.equal(feed.topRightAd, null);
+  assert.deepEqual(feed.topRightAds, []);
+  assert.equal(feed.topRightAdsEnabled, false);
+  assert.equal(feed.apiRelayEnabled, false);
+  assert.equal(feed.sponsorModule, null);
 });
 
-test('campaign link retains uppercase affiliate code while ordinary registration stays unchanged', () => {
-  assert.equal(new URL(APIKEY_FUN_CAMPAIGN.url).searchParams.get('aff'), 'COCKPIT');
+test('built-in campaign and registration URLs have no affiliate code', () => {
+  assert.equal(new URL(APIKEY_FUN_CAMPAIGN.url).searchParams.has('aff'), false);
+  assert.equal(new URL(APIKEY_FUN_REGISTER_URL).searchParams.has('aff'), false);
   assert.equal(normalizeApiKeyFunOfficialUrl(APIKEY_FUN_CAMPAIGN.url), APIKEY_FUN_CAMPAIGN.url);
   assert.equal(normalizeApiKeyFunOfficialUrl('https://apikey.fan/register'), APIKEY_FUN_REGISTER_URL);
 });

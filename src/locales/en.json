@@ -1571,6 +1571,8 @@
       "dataDirEnvironment": "The current launch uses the directory specified by COCKPIT_TOOLS_DATA_DIR.",
       "topRightAdVisible": "Show top promo",
       "topRightAdVisibleDesc": "Hide the top promo slot in the app. The Sponsors page is not affected.",
+      "communityManualUpdateTitle": "Manual updates",
+      "communityManualUpdate": "Get updates for this edition from the GitHub repository you downloaded it from.",
       "opencodeTitle": "OpenCode Integration",
       "opencodeAuthOverwrite": "Overwrite OpenCode login when switching Codex",
       "opencodeAuthOverwriteDesc": "When off, only Codex is switched and OpenCode keeps its current login state",

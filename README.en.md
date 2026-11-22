@@ -1,10 +1,12 @@
-# Cockpit Tools
+# Cockpit Tools Clean
+
+A community edition without promotion, based on [Cockpit Tools v1.4.2](https://github.com/jlcodes99/cockpit-tools/tree/v1.4.2). [NOTICE](NOTICE.md)
+
+On **Windows 10/11 x64**, download `Cockpit.Tools.Clean_1.4.2_x64-portable.zip` from **Releases**, extract it, and open `cockpit-tools.exe`.
 
 English · [Portuguese (BR)](README.pt-br.md) · [한국어](README.ko.md) · [简体中文](README.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)
-[![GitHub downloads](https://img.shields.io/github/downloads/jlcodes99/cockpit-tools/total?style=flat&color=blue)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub release](https://img.shields.io/github/v/release/jlcodes99/cockpit-tools?style=flat)](https://github.com/jlcodes99/cockpit-tools/releases)
 [![GitHub issues](https://img.shields.io/github/issues/jlcodes99/cockpit-tools)](https://github.com/jlcodes99/cockpit-tools/issues)
 
 A **universal AI IDE account management tool**, currently supporting **Antigravity IDE**, **Codex**, **GitHub Copilot**, **Windsurf**, **Kiro**, **Cursor**, **Grok CLI**, **CodeBuddy**, **CodeBuddy CN**, **Qoder**, **Trae**, **TraeWork**, **Trae CN**, **TraeWork CN**, **Zed**, **ZCode**, and **WorkBuddy AI**, with multi-instance parallel workflows.
@@ -20,33 +22,6 @@ A **universal AI IDE account management tool**, currently supporting **Antigravi
 🇺🇸 English · 🇨🇳 简体中文 · 繁體中文 · 🇯🇵 日本語 · 🇩🇪 Deutsch · 🇪🇸 Español · 🇫🇷 Français · 🇮🇹 Italiano · 🇰🇷 한국어 · 🇧🇷 Português · 🇷🇺 Русский · 🇹🇷 Türkçe · 🇵🇱 Polski · 🇨🇿 Čeština · 🇸🇦 العربية · 🇻🇳 Tiếng Việt · 🇮🇩 Bahasa Indonesia
 
 **Officially supported platforms**: macOS, Windows, and Linux.
-
----
-
-## Sponsors
-
-<table>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://apikey.fan/register?aff=COCKPIT">
-        <img src="src/assets/icons/apikey-fun.png" alt="APIKEY.FUN" width="72" />
-      </a>
-    </td>
-    <td>
-      <a href="https://apikey.fan/register?aff=COCKPIT"><strong>APIKEY.FUN</strong></a> is a professional enterprise-grade AI relay focused on stable, efficient, and low-cost AI model API access for companies and individual developers. It supports popular models such as Claude, OpenAI, and Gemini, with prices as low as 7% of official pricing. Register through this project <a href="https://apikey.fan/register?aff=COCKPIT"><strong>exclusive link</strong></a> to receive an exclusive <strong>permanent 5% top-up discount</strong>.
-    </td>
-  </tr>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://roxybrowser.cn?code=0326VTDA">
-        <img src="src/assets/icons/roxybrowser.jpg" alt="RoxyBrowser" width="96" />
-      </a>
-    </td>
-    <td>
-      <a href="https://roxybrowser.cn?code=0326VTDA"><strong>RoxyBrowser</strong></a> is an anti-detect browser for multi-account operations and AI automation, supporting isolated browser fingerprint environments, Cookie / storage isolation, Roxy native residential IPs, team collaboration, and API / MCP automation. It helps users manage AI account matrices, reduce account association risk, and improve long-term stability. Register or purchase through the Cockpit <a href="https://roxybrowser.cn?code=0326VTDA"><strong>invite link</strong></a> to get a 10% fan discount.
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -385,56 +360,9 @@ Notes:
 
 ## Installation Guide
 
-### Option A: Manual Download (Recommended)
+Open **Releases** in this repository and download `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`. Extract the folder and open the executable. The portable build requires Windows 10/11 x64 and Microsoft Edge WebView2 Runtime. The release includes `SHA256SUMS.txt`.
 
-Go to [GitHub Releases](https://github.com/jlcodes99/cockpit-tools/releases) to download the package for your system:
-
-*   **macOS**: `.dmg` (Apple Silicon & Intel)
-*   **Windows x64**: `_x64_en-US.msi` (recommended), `_x64-setup.exe`, or `x64-portable.zip` (extract and run)
-*   **Windows ARM64**: `_arm64-setup.exe`
-
-Extract the Windows portable archive and run the included `Cockpit Tools.exe` (or the bundled main executable). Windows 10/11 with the Microsoft Edge WebView2 Runtime is required. Accounts and settings remain in the current Windows user's data directory and are not moved with the ZIP folder.
-*   **Linux**: `.deb` (Debian/Ubuntu), `.rpm`, or `.AppImage`
-
-Ubuntu 20.04 cannot install the current `.deb` because its repositories lack `libwebkit2gtk-4.1-0`. The current x64 AppImage binary requires glibc 2.34, and Ubuntu 20.04 provides glibc 2.31. Use Ubuntu 24.04 LTS. See the [Ubuntu 24.04 build guide](docs/build-wsl2-ubuntu24.md) for building from source.
-
-### Option B: Install with Homebrew (macOS)
-
-> Homebrew is required.
-
-```bash
-brew tap jlcodes99/cockpit-tools https://github.com/jlcodes99/cockpit-tools
-brew install --cask cockpit-tools
-```
-
-The macOS release pipeline requires Apple Developer ID signing and notarization; normal installation does not need `--no-quarantine`. Previously published unsigned versions do not become signed retroactively.
-
-If Homebrew says the app already exists (e.g. `already an App at '/Applications/Cockpit Tools.app'`), remove the old app and install again:
-
-```bash
-rm -rf "/Applications/Cockpit Tools.app"
-brew install --cask cockpit-tools
-```
-
-Or force overwrite the existing app:
-
-```bash
-brew install --cask --force cockpit-tools
-```
-
-### 🛠️ Troubleshooting
-
-#### Windows: Codex setup incomplete
-
-For the specific `helper_sandbox_lock_failed` / `.sandbox-bin` access-denied failure, see the [temporary Codex sandbox recovery guide](docs/codex-windows-sandbox-recovery.md). This is an upstream Codex issue; the recovery tool is read-only by default and offers explicit ownership repair with rollback.
-
-#### macOS says "App is damaged and can't be opened"?
-
-The new macOS release pipeline verifies Developer ID signatures, Apple notarization and stapled tickets for the app, updater archive and final DMG. A normal first-launch confirmation that the app was downloaded from the Internet may still appear.
-
-If the warning persists, download a version explicitly marked as signed and notarized from the [official Releases](https://github.com/jlcodes99/cockpit-tools/releases), verify `SHA256SUMS.txt`, and reinstall. Historical unsigned packages, local development builds and modified apps may still be blocked. Do not assume that a security warning is a false alarm; normal installation does not require disabling Gatekeeper or removing quarantine attributes. When reporting a persistent issue, include the version, processor architecture and full message.
-
----
+Get updates manually from this repository. See the build section below for other systems.
 
 ## Development & Build
 
@@ -485,14 +413,6 @@ cargo run --locked --package cockpit-cli -- switch cursor "your-account-id" --js
 ## Community
 
 Newly created Telegram chat group: [Join the group](https://t.me/+Y8gMv4SlZUU2MWY1)
-
----
-
-## Sponsor
-
-If you find this project useful, consider supporting it here: [☕ Donate](docs/DONATE.en.md)
-
-Every bit of support helps sustain open-source development. Thank you!
 
 ---
 

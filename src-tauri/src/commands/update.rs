@@ -5,15 +5,10 @@ use crate::modules::update_checker::{
 };
 use std::time::Instant;
 
-/// Check if we should check for updates (based on interval settings)
+/// The clean edition uses manual releases.
 #[tauri::command]
 pub fn should_check_updates() -> Result<bool, String> {
-    // #1104: respect external-network kill switch for auto update probes.
-    if !crate::modules::config::get_user_config().external_network_enabled {
-        return Ok(false);
-    }
-    let settings = update_checker::load_update_settings()?;
-    Ok(update_checker::should_check_for_updates(&settings))
+    Ok(false)
 }
 
 /// Update the last check time

@@ -191,11 +191,35 @@ function createZip(entries) {
   return Buffer.concat([localDirectory, centralDirectory, end]);
 }
 
-function buildWindowsPortableArchive({ releaseDir, outputDir, version, executable }) {
+function buildWindowsPortableArchive({ releaseDir, outputDir, version, executable, appConfig }) {
   const releaseRoot = path.resolve(releaseDir);
   const executablePath = findExecutable(releaseRoot, executable && path.resolve(executable));
   const files = collectPortableFiles({ releaseDir: releaseRoot, executablePath });
-  const archiveRoot = `Cockpit.Tools_${version}_x64-portable`;
+  let productName = 'Cockpit Tools';
+  if (appConfig) {
+    const configFile = path.resolve(appConfig);
+    const configDir = path.dirname(configFile);
+    const projectDir = path.dirname(configDir);
+    const config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+    productName = config.productName;
+    if (!/^[A-Za-z0-9]+(?:[ ._-][A-Za-z0-9]+)*$/.test(productName)) {
+      throw new Error(`Invalid portable product name: ${productName}`);
+    }
+    for (const [source, destination] of Object.entries(config.bundle.resources)) {
+      const sourcePath = path.resolve(configDir, source);
+      const relativeSource = path.relative(projectDir, sourcePath);
+      const archivePath = destination.replaceAll('\\', '/');
+      if (path.isAbsolute(relativeSource) || relativeSource.split(path.sep).includes('..') ||
+          /^[A-Za-z]:/.test(archivePath) || archivePath.split('/').some((part) => !part || part === '..' || part === '.')) {
+        throw new Error(`Invalid portable resource: ${source}`);
+      }
+      files.push({ sourcePath, archivePath });
+    }
+    for (const name of ['LICENSE', 'NOTICE.md']) {
+      files.push({ sourcePath: path.join(projectDir, name), archivePath: name });
+    }
+  }
+  const archiveRoot = `${productName.replaceAll(' ', '.')}_${version}_x64-portable`;
   const entries = files.map((file) => ({
     sourcePath: file.sourcePath,
     archivePath: path.join(archiveRoot, file.archivePath),
@@ -203,7 +227,7 @@ function buildWindowsPortableArchive({ releaseDir, outputDir, version, executabl
   entries.push({
     archivePath: path.join(archiveRoot, 'README.txt'),
     content: Buffer.from(
-      'Cockpit Tools portable edition\r\n\r\n' +
+      `${productName} portable edition\r\n\r\n` +
       `Extract this folder and run ${path.basename(executablePath)}.\r\n` +
         'Windows 10/11 with Microsoft Edge WebView2 Runtime is required.\r\n' +
         '账号和配置仍按当前 Windows 用户目录保存，不会随 ZIP 文件夹自动迁移。\r\n',
@@ -224,6 +248,7 @@ function main() {
     outputDir: requiredArg(args, 'output-dir'),
     version: requiredArg(args, 'version'),
     executable: args.executable,
+    appConfig: args['app-config'],
   });
   console.log(`Windows portable archive created at ${outputPath}`);
 }

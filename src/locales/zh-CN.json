@@ -1571,6 +1571,8 @@
       "dataDirEnvironment": "当前启动使用 COCKPIT_TOOLS_DATA_DIR 指定的目录。",
       "topRightAdVisible": "显示顶部推广",
       "topRightAdVisibleDesc": "关闭后隐藏应用顶部推广位。",
+      "communityManualUpdateTitle": "手动更新",
+      "communityManualUpdate": "请从下载此版本的 GitHub 仓库手动获取更新。",
       "opencodeTitle": "OpenCode 联动",
       "opencodeAuthOverwrite": "切换 Codex 时覆盖 OpenCode 登录信息",
       "opencodeAuthOverwriteDesc": "关闭后仅切换 Codex，不会改写 OpenCode 当前登录态",

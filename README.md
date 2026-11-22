@@ -1,10 +1,12 @@
-# Cockpit Tools
+# Cockpit Tools Clean
+
+社区维护的无推广版，基于 [Cockpit Tools v1.4.2](https://github.com/jlcodes99/cockpit-tools/tree/v1.4.2)。 [NOTICE](NOTICE.md)
+
+**Windows 10/11 x64** 用户可在本仓库的 **Releases** 下载 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`，解压后运行 `cockpit-tools.exe`。
 
 [English](README.en.md) · [Portuguese (BR)](README.pt-br.md) · [한국어](README.ko.md) · 简体中文
 
 [![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)
-[![GitHub downloads](https://img.shields.io/github/downloads/jlcodes99/cockpit-tools/total?style=flat&color=blue)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub release](https://img.shields.io/github/v/release/jlcodes99/cockpit-tools?style=flat)](https://github.com/jlcodes99/cockpit-tools/releases)
 [![GitHub issues](https://img.shields.io/github/issues/jlcodes99/cockpit-tools)](https://github.com/jlcodes99/cockpit-tools/issues)
 
 一款**通用的 AI IDE 账号管理工具**，目前支持 **Antigravity IDE**、**Codex**、**GitHub Copilot**、**Windsurf**、**Kiro**、**Cursor**、**Grok CLI**、**CodeBuddy**、**CodeBuddy CN**、**Qoder**、**Trae**、**TraeWork**、**Trae CN**、**TraeWork CN**、**Zed**、**ZCode** 和 **WorkBuddy AI**，并支持多账号多实例并行运行。
@@ -21,33 +23,6 @@
 🇺🇸 English · 🇨🇳 简体中文 · 繁體中文 · 🇯🇵 日本語 · 🇩🇪 Deutsch · 🇪🇸 Español · 🇫🇷 Français · 🇮🇹 Italiano · 🇰🇷 한국어 · 🇧🇷 Português · 🇷🇺 Русский · 🇹🇷 Türkçe · 🇵🇱 Polski · 🇨🇿 Čeština · 🇸🇦 العربية · 🇻🇳 Tiếng Việt · 🇮🇩 Bahasa Indonesia
 
 **官方支持平台**：macOS、Windows、Linux。
-
----
-
-## 赞助商
-
-<table>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://apikey.fan/register?aff=COCKPIT">
-        <img src="src/assets/icons/apikey-fun.png" alt="APIKEY.FUN" width="72" />
-      </a>
-    </td>
-    <td>
-      <a href="https://apikey.fan/register?aff=COCKPIT"><strong>APIKEY.FUN</strong></a> 是一家专业的企业级 AI 中转站，致力于为企业和个人开发者提供稳定、高效、低成本的 AI 模型 API 接入服务。平台支持 Claude、OpenAI、Gemini 等主流热门模型，价格低至官方原价的 7%。通过本项目 <a href="https://apikey.fan/register?aff=COCKPIT"><strong>专属链接</strong></a> 注册，还可享受最高 <strong>充值永久 95 折</strong> 专属优惠。
-    </td>
-  </tr>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://roxybrowser.cn?code=0326VTDA">
-        <img src="src/assets/icons/roxybrowser.jpg" alt="RoxyBrowser" width="96" />
-      </a>
-    </td>
-    <td>
-      <a href="https://roxybrowser.cn?code=0326VTDA"><strong>RoxyBrowser（Roxy浏览器）</strong></a> 是面向多账号运营与 AI 自动化场景的指纹浏览器，支持独立浏览器指纹环境、Cookie / 存储隔离、Roxy 原生住宅 IP、团队协作与 API / MCP 自动化能力，适合需要管理 AI 账号矩阵、降低账号关联风险、提升长期使用稳定性的用户。通过 Cockpit <a href="https://roxybrowser.cn?code=0326VTDA"><strong>邀请链接</strong></a> 注册或购买，可享受 10% 粉丝折扣。
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -382,59 +357,22 @@ Grok CLI 默认实例通常直接沿用官方 `~/.grok` 目录，启动时不设
 
 ## 安装指南 (Installation)
 
-### 选项 A: 手动下载 (推荐)
+打开本仓库的 **Releases** 下载 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`。解压后双击里面的 EXE。Windows 10/11 x64 需要 Microsoft Edge WebView2 Runtime。发布页同时提供 `SHA256SUMS.txt`。
 
-前往 [GitHub Releases](https://github.com/jlcodes99/cockpit-tools/releases) 下载对应系统的安装包：
-
-*   **macOS**: `.dmg` (Apple Silicon & Intel)
-*   **Windows x64**：`_x64_en-US.msi`（推荐）、`_x64-setup.exe`，或 `x64-portable.zip`（解压即用）
-*   **Windows ARM64**：`_arm64-setup.exe`
-
-Windows 便携包解压后直接运行其中的 `Cockpit Tools.exe`（或同名主程序）。系统需要 Windows 10/11 的 Microsoft Edge WebView2 Runtime；账号和配置仍按当前 Windows 用户目录保存，不会随 ZIP 文件夹自动迁移。
-*   **Linux**: `.deb` (Debian/Ubuntu)、`.rpm` 或 `.AppImage`
-
-Ubuntu 20.04 无法安装当前 `.deb`，其软件源缺少 `libwebkit2gtk-4.1-0`。当前 x64 AppImage 的主程序需要 glibc 2.34，Ubuntu 20.04 提供 glibc 2.31。可使用 Ubuntu 24.04 LTS，源码构建见 [Ubuntu 24.04 编译指南](docs/build-wsl2-ubuntu24.md)。
-
-### 选项 B: Homebrew 安装 (macOS)
-
-> 需要先安装 Homebrew。
-
-```bash
-brew tap jlcodes99/cockpit-tools https://github.com/jlcodes99/cockpit-tools
-brew install --cask cockpit-tools
-```
-
-macOS 正式包的发布流程要求 Apple Developer ID 签名与公证；正常安装无需添加 `--no-quarantine`。历史未签名版本不会因流程更新而自动获得签名。
-
-如果提示已存在应用（例如：`already an App at '/Applications/Cockpit Tools.app'`），请先删除旧版本再安装：
-
-```bash
-rm -rf "/Applications/Cockpit Tools.app"
-brew install --cask cockpit-tools
-```
-
-或者直接强制覆盖安装：
-
-```bash
-brew install --cask --force cockpit-tools
-```
-
-### 🛠️ 常见问题排查 (Troubleshooting)
-
-#### Windows：Codex 反复提示“Windows 设置未完成”？
-
-若当前错误为 `helper_sandbox_lock_failed` 且 `.sandbox-bin` 目录访问被拒绝，请参阅[Codex Windows 沙箱临时恢复说明](docs/codex-windows-sandbox-recovery.md)。该问题已在 Codex 上游报告；恢复工具默认只读，需手动修复并保留回滚备份。
-
-
-#### macOS 提示“应用已损坏，无法打开”？
-
-新的 macOS 正式发布流程会验证 Developer ID 签名、Apple 公证和公证票据，覆盖应用、自动更新包及最终 DMG。首次打开仍可能出现“从互联网下载，是否打开”的正常确认。
-
-如果仍提示损坏，请从[官方 Releases](https://github.com/jlcodes99/cockpit-tools/releases)重新下载已注明签名与公证的版本，核对 `SHA256SUMS.txt` 并重新安装。历史未签名包、本地开发包或被修改的应用仍可能被拦截；不要直接把安全警告视为误报，也不需要默认关闭 Gatekeeper 或移除隔离属性。问题持续时，请提供版本、芯片架构及完整提示。
-
----
+更新请从本仓库的 Releases 手动获取。其他系统可以按下文从源码构建。
 
 ## 开发与构建
+
+Windows x64 发布包使用 Node.js、Rust MSVC 和 Visual Studio C++ 生成工具构建。在仓库目录下运行以下命令。
+
+```powershell
+npm ci --ignore-scripts --no-audit --no-fund
+npm run typecheck
+node .\node_modules\vite\bin\vite.js build --target esnext --minify false
+npx tauri build --ci --no-bundle --target x86_64-pc-windows-msvc --config src-tauri/tauri.prebuilt-frontend.conf.json -- --locked --config profile.release.package.cockpit-tools.opt-level=1
+node scripts/release/build_windows_portable.cjs --app-config src-tauri/tauri.conf.json --release-dir target/x86_64-pc-windows-msvc/release --output-dir target/portable --version 1.4.2
+Get-FileHash -Algorithm SHA256 target/portable/Cockpit.Tools.Clean_1.4.2_x64-portable.zip
+```
 
 ### 前置要求
 
@@ -489,14 +427,6 @@ cargo run --locked --package cockpit-cli -- switch cursor "你的账号ID" --jso
 | 微信（个人） |
 | :---: |
 | <img src="docs/images/wechat_info.jpg" alt="微信联系二维码" width="200" /> |
-
----
-
-## ☕ 赞助项目
-
-如果不介意，请 [☕ 赞赏支持一下](docs/DONATE.md)
-
-您的每一份支持都是对开源项目最大的鼓励！无论金额大小，都代表着您对这个项目的认可。
 
 ---
 

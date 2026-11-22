@@ -573,17 +573,15 @@ pub fn run() {
                 }
             });
 
-            // 初始化 Updater 插件
+            // This edition is updated through its own release page.
             #[cfg(desktop)]
             {
-                app.handle()
-                    .plugin(tauri_plugin_updater::Builder::new().build())?;
                 app.handle().plugin(tauri_plugin_process::init())?;
                 app.handle().plugin(tauri_plugin_autostart::init(
                     tauri_plugin_autostart::MacosLauncher::LaunchAgent,
                     None::<Vec<&'static str>>,
                 ))?;
-                info!("[Updater] Tauri Updater + Process 插件已初始化");
+                info!("[Startup] Tauri Process plugin initialized");
             }
 
             // 启动时同步设置合并（移至后台线程，不阻塞窗口显示）

@@ -1534,20 +1534,12 @@ function MainApp() {
   const isLinuxManagedUpdate = updateRuntimeInfo?.platform === 'linux'
     && updateRuntimeInfo.linux_managed_install_supported;
 
-  const getUpdaterCheckTarget = useCallback((): string | undefined => {
-    if (typeof updateRuntimeInfo?.updater_target !== 'string') {
-      return undefined;
-    }
-
-    const target = updateRuntimeInfo.updater_target.trim();
-    return target.length > 0 ? target : undefined;
-  }, [updateRuntimeInfo]);
-
-  const runUpdaterCheck = useCallback(async () => {
-    const { check } = await import('@tauri-apps/plugin-updater');
-    const target = getUpdaterCheckTarget();
-    return target ? check({ target }) : check();
-  }, [getUpdaterCheckTarget]);
+  const runUpdaterCheck = useCallback(async (): Promise<UpdaterUpdate | null> => {
+    throw new Error(t(
+      'settings.general.communityManualUpdate',
+      'Get updates for this edition from the GitHub repository you downloaded it from.',
+    ));
+  }, [t]);
 
   const closeUpdaterHandle = useCallback(async (handle: UpdaterUpdate | null | undefined) => {
     if (!handle) {
@@ -2303,6 +2295,9 @@ function MainApp() {
     let intervalId: number | undefined;
 
     const checkUpdates = async (trigger: 'startup' | 'hourly') => {
+      if (!await invoke<boolean>('should_check_updates').catch(() => false)) {
+        return;
+      }
       if (updateCheckInFlightRef.current
         || updateDownloadOwnerRef.current !== 'none'
         || pendingSilentUpdateRef.current) {
@@ -3751,7 +3746,7 @@ function MainApp() {
               onEasterEggTriggerClick={handleBreakoutEntryTriggerClick}
             />
           </VisibleBootPage>
-          <VisibleBootPage when={page === 'api-relay'}>
+          <VisibleBootPage when={page === 'api-relay' && sponsorEntryVisible}>
             <ApiKeyFunPage />
           </VisibleBootPage>
           <VisibleBootPage when={page === 'overview'}>

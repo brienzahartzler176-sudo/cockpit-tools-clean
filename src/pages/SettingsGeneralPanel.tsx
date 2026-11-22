@@ -41,9 +41,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     autoImportScanBusy,
     autoImportScanSeqRef,
     autoImportScanStatus,
-    autoInstall,
-    autoInstallLoaded,
-    autoInstallTouchedRef,
     autoRefresh,
     autoRefreshCustomMode,
     autoRefreshIsPreset,
@@ -186,7 +183,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     setAutoImportFromLocalEnabled,
     setAutoImportScanBusy,
     setAutoImportScanStatus,
-    setAutoInstall,
     setAutoRefresh,
     setAutoRefreshCustomMode,
     setAutoSwitchAccountScopeMode,
@@ -272,7 +268,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     setTheme,
     setThemeColor,
     setTokenKeeperEnabled,
-    setTopRightAdVisible,
     setTraeAppPath,
     setTraeAutoRefresh,
     setTraeAutoRefreshCustomMode,
@@ -296,7 +291,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     setTraeSoloQuotaAlertThresholdCustomMode,
     setTrayIconStyle,
     setUiScale,
-    setUpdateRemindersEnabled,
     setVscodeAppPath,
     setWebdavAllowedDomains,
     setWindsurfAppPath,
@@ -330,7 +324,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     themeColor,
     THRESHOLD_PRESET_VALUES,
     tokenKeeperEnabled,
-    topRightAdVisible,
     traeAppPath,
     traeAutoRefresh,
     traeAutoRefreshCustomMode,
@@ -365,9 +358,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
     trayIconStyle,
     showTrayIcon,
     uiScale,
-    updateRemindersEnabled,
-    updateRemindersLoaded,
-    updateRemindersTouchedRef,
     updateSettingsLoadFailed,
     vscodeAppPath,
     webdavAllowedDomains,
@@ -651,45 +641,8 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
 
               <div className="settings-row">
                 <div className="row-label">
-                  <div className="row-title">{t('settings.general.autoUpdate')}</div>
-                  <div className="row-desc">{t('settings.general.autoUpdateDesc')}</div>
-                </div>
-                <div className="row-control">
-                  <SettingsDropdown
-                    value={autoInstall ? 'true' : 'false'}
-                    disabled={!autoInstallLoaded}
-                    options={[
-                      { value: 'false', label: t('settings.general.autoUpdateOff') },
-                      { value: 'true', label: t('settings.general.autoUpdateOn') },
-                    ]}
-                    onChange={(nextValue) => {
-                      autoInstallTouchedRef.current = true;
-                      setAutoInstall(nextValue === 'true');
-                    }}
-                    ariaLabel={t('settings.general.autoUpdate')}
-                  />
-                </div>
-              </div>
-
-              <div className="settings-row">
-                <div className="row-label">
-                  <div className="row-title">{t('settings.general.updateReminder')}</div>
-                  <div className="row-desc">{t('settings.general.updateReminderDesc')}</div>
-                </div>
-                <div className="row-control">
-                  <SettingsDropdown
-                    value={updateRemindersEnabled ? 'true' : 'false'}
-                    disabled={!updateRemindersLoaded}
-                    options={[
-                      { value: 'true', label: t('settings.general.updateReminderOn') },
-                      { value: 'false', label: t('settings.general.updateReminderOff') },
-                    ]}
-                    onChange={(nextValue) => {
-                      updateRemindersTouchedRef.current = true;
-                      setUpdateRemindersEnabled(nextValue === 'true');
-                    }}
-                    ariaLabel={t('settings.general.updateReminder')}
-                  />
+                  <div className="row-title">{t('settings.general.communityManualUpdateTitle', 'Manual updates')}</div>
+                  <div className="row-desc">{t('settings.general.communityManualUpdate')}</div>
                 </div>
               </div>
 
@@ -1016,30 +969,6 @@ export function SettingsGeneralPanel(props: SettingsPageViewProps) {
               <FloatingCardShowSetting />
 
               <DataDirectorySetting />
-
-              <div className="settings-row">
-                <div className="row-label">
-                  <div className="row-title">
-                    {t('settings.general.topRightAdVisible', '显示顶部推广')}
-                  </div>
-                  <div className="row-desc">
-                    {t(
-                      'settings.general.topRightAdVisibleDesc',
-                      '关闭后隐藏应用顶部推广位。'
-                    )}
-                  </div>
-                </div>
-                <div className="row-control">
-                  <label className="switch">
-                    <input
-                      type="checkbox"
-                      checked={topRightAdVisible}
-                      onChange={(e) => setTopRightAdVisible(e.target.checked)}
-                    />
-                    <span className="slider"></span>
-                  </label>
-                </div>
-              </div>
 
               <StartupPageSetting value={startupPage} onChange={setStartupPage} />
 

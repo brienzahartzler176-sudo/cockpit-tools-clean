@@ -5,7 +5,7 @@ export const APIKEY_FUN_CAMPAIGN = {
   id: 'apikey-fan-double11-2026',
   startsAt: '2026-11-01T00:00:00+08:00',
   expiresAt: '2026-11-12T00:00:00+08:00',
-  url: 'https://apikey.fan/activities/double11-2026?aff=COCKPIT',
+  url: 'https://apikey.fan/activities/double11-2026',
 } as const;
 
 const startsAt = Date.parse(APIKEY_FUN_CAMPAIGN.startsAt);

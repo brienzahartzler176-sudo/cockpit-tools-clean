@@ -1,10 +1,10 @@
-# Cockpit Tools
+# Cockpit Tools Clean
+
+Edição comunitária sem publicidade, baseada no [Cockpit Tools v1.4.2](https://github.com/jlcodes99/cockpit-tools/tree/v1.4.2). [NOTICE](NOTICE.md)
 
 [English](README.en.md)  · Portuguese (BR) · [한국어](README.ko.md) · [简体中文](README.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)
-[![GitHub downloads](https://img.shields.io/github/downloads/jlcodes99/cockpit-tools/total?style=flat&color=blue)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub release](https://img.shields.io/github/v/release/jlcodes99/cockpit-tools?style=flat)](https://github.com/jlcodes99/cockpit-tools/releases)
 [![GitHub issues](https://img.shields.io/github/issues/jlcodes99/cockpit-tools)](https://github.com/jlcodes99/cockpit-tools/issues)
 
 Uma **ferramenta universal de gerenciamento de contas para IDEs de IA**, atualmente compatível com **Antigravity IDE**, **Codex**, **GitHub Copilot**, **Windsurf**, **Kiro**, **Cursor**, **CodeBuddy**, **CodeBuddy CN**, **Qoder**, **Trae** e **Zed**, com fluxos de trabalho paralelos em múltiplas instâncias.
@@ -287,48 +287,9 @@ Observações:
 
 ## Guia de Instalação
 
-### Opção A: Download Manual (Recomendado)
+Abra **Releases** neste repositório e baixe `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`. Extraia a pasta e abra o executável. O pacote requer Windows 10/11 x64 e Microsoft Edge WebView2 Runtime. A versão publicada inclui `SHA256SUMS.txt`.
 
-Acesse a [página de lançamentos do GitHub](https://github.com/jlcodes99/cockpit-tools/releases) para baixar o pacote para o seu sistema:
-
-*   **macOS**: `.dmg` (Apple Silicon & Intel)
-*   **Windows**: `.msi` (Recommended) or `.exe`
-*   **Linux**: `.deb` (Debian/Ubuntu), `.rpm` ou `.AppImage`
-
-### Opção B: Instalar com o Homebrew (macOS)
-
-> É necessário o Homebrew.
-
-
-```bash
-brew tap jlcodes99/cockpit-tools https://github.com/jlcodes99/cockpit-tools
-brew install --cask cockpit-tools
-```
-
-O fluxo de publicação para macOS exige assinatura Developer ID e notarização da Apple; a instalação normal não precisa de `--no-quarantine`. Versões antigas sem assinatura não passam a ser assinadas retroativamente.
-
-Se o Homebrew disser que o aplicativo já existe (por exemplo, `já existe um aplicativo em '/Applications/Cockpit Tools.app'`), remova o aplicativo antigo e instale-o novamente:
-
-```bash
-rm -rf "/Applications/Cockpit Tools.app"
-brew install --cask cockpit-tools
-```
-
-Ou force a sobrescrita do aplicativo existente:
-
-```bash
-brew install --cask --force cockpit-tools
-```
-
-### 🛠️ Solução de problemas
-
-#### O macOS exibe a mensagem "O app está danificado e não pode ser aberto"?
-
-O novo fluxo de publicação para macOS verifica a assinatura Developer ID, a notarização da Apple e os comprovantes anexados ao aplicativo, ao pacote de atualização e à imagem DMG final. Na primeira abertura, ainda pode aparecer a confirmação normal de que o aplicativo foi baixado da Internet.
-
-Se o aviso persistir, baixe uma versão explicitamente identificada como assinada e notarizada nas [versões oficiais](https://github.com/jlcodes99/cockpit-tools/releases), confira o arquivo `SHA256SUMS.txt` e reinstale. Pacotes antigos sem assinatura, compilações locais de desenvolvimento e aplicativos modificados ainda podem ser bloqueados. Não presuma que um aviso de segurança seja um falso positivo; a instalação normal não exige desativar o Gatekeeper nem remover atributos de quarentena. Ao relatar um problema persistente, informe a versão, a arquitetura do processador e a mensagem completa.
-
----
+Baixe atualizações manualmente deste repositório. Consulte as instruções de compilação abaixo para outros sistemas.
 
 ## Desenvolvimento & Compilação
 
@@ -367,14 +328,6 @@ npm run tauri build
 ## Comunidade
 
 Grupo de bate-papo no Telegram recém-criado: [Junte-se ao grupo](https://t.me/+Y8gMv4SlZUU2MWY1)
-
----
-
-## Patrocínio
-
-Se você achar este projeto útil, considere apoiá-lo aqui: [☕ Doar](docs/DONATE.pt-br.md)
-
-Toda contribuição ajuda a manter o desenvolvimento de código aberto. Obrigado!
 
 ---
 

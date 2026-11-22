@@ -105,7 +105,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
       "https://api-slb.packyapi.com/v1",
     ],
     website: "https://www.packyapi.com",
-    apiKeyUrl: "https://www.packyapi.com/register?aff=cc-switch",
+    apiKeyUrl: "https://www.packyapi.com/register",
     isPartner: true,
   },
   {
@@ -134,7 +134,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
     name: "RightCode",
     baseUrls: ["https://right.codes/codex/v1"],
     website: "https://www.right.codes",
-    apiKeyUrl: "https://www.right.codes/register?aff=CCSWITCH",
+    apiKeyUrl: "https://www.right.codes/register",
     isPartner: true,
   },
   {
@@ -146,7 +146,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
       "https://anti.sssaicode.com/api/v1",
     ],
     website: "https://www.sssaicode.com",
-    apiKeyUrl: "https://www.sssaicode.com/register?ref=DCP0SM",
+    apiKeyUrl: "https://www.sssaicode.com/register",
     isPartner: true,
   },
   {
@@ -154,7 +154,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
     name: "Micu",
     baseUrls: ["https://www.openclaudecode.cn/v1"],
     website: "https://www.openclaudecode.cn",
-    apiKeyUrl: "https://www.openclaudecode.cn/register?aff=aOYQ",
+    apiKeyUrl: "https://www.openclaudecode.cn/register",
     isPartner: true,
   },
   {
@@ -228,7 +228,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
       "https://api.claudecode.net.cn/api/codex/backend-api/codex",
     ],
     website: "https://www.aicodemirror.com",
-    apiKeyUrl: "https://www.aicodemirror.com/register?invitecode=9915W3",
+    apiKeyUrl: "https://www.aicodemirror.com/register",
     isPartner: true,
   },
   {
@@ -244,7 +244,7 @@ export const CODEX_API_PROVIDER_PRESETS: readonly CodexApiProviderPreset[] = [
     name: "CrazyRouter",
     baseUrls: ["https://crazyrouter.com/v1"],
     website: "https://www.crazyrouter.com",
-    apiKeyUrl: "https://www.crazyrouter.com/register?aff=OZcm&ref=cc-switch",
+    apiKeyUrl: "https://www.crazyrouter.com/register",
     isPartner: true,
   },
   {

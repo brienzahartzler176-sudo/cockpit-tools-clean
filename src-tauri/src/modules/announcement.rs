@@ -7,6 +7,10 @@ use std::path::{Path, PathBuf};
 use super::config;
 use super::logger;
 
+
+// This desktop edition ships without the upstream bulletin and promotion feed.
+const ANNOUNCEMENT_FEED_ENABLED: bool = false;
+
 const ANNOUNCEMENT_URL: &str =
     "https://raw.githubusercontent.com/jlcodes99/cockpit-tools/main/announcements.json";
 const ANNOUNCEMENT_CACHE_FILE: &str = "announcement_cache.json";
@@ -245,7 +249,7 @@ pub struct SponsorModule {
     pub sponsors: Vec<Sponsor>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct AnnouncementResponse {
     #[serde(default)]
@@ -1042,6 +1046,10 @@ async fn try_load_force_refreshed_announcements(
 }
 
 async fn load_announcements_raw() -> Result<AnnouncementResponse, String> {
+    if !ANNOUNCEMENT_FEED_ENABLED {
+        return Ok(AnnouncementResponse::default());
+    }
+
     if let Some(local_data) = load_local_announcements()? {
         return Ok(local_data);
     }

@@ -1,10 +1,10 @@
-# Cockpit Tools
+# Cockpit Tools Clean
+
+[Cockpit Tools v1.4.2](https://github.com/jlcodes99/cockpit-tools/tree/v1.4.2) 기반의 광고 없는 커뮤니티 버전입니다. [NOTICE](NOTICE.md)
 
 [English](README.en.md) · [Portuguese (BR)](README.pt-br.md) · [简体中文](README.md) · 한국어
 
 [![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)
-[![GitHub downloads](https://img.shields.io/github/downloads/jlcodes99/cockpit-tools/total?style=flat&color=blue)](https://github.com/jlcodes99/cockpit-tools/releases)
-[![GitHub release](https://img.shields.io/github/v/release/jlcodes99/cockpit-tools?style=flat)](https://github.com/jlcodes99/cockpit-tools/releases)
 [![GitHub issues](https://img.shields.io/github/issues/jlcodes99/cockpit-tools)](https://github.com/jlcodes99/cockpit-tools/issues)
 
 **범용 AI IDE 계정 관리 도구**입니다. 현재 **Antigravity IDE**, **Codex**, **GitHub Copilot**, **Windsurf**, **Kiro**, **Cursor**, **Grok CLI**, **CodeBuddy**, **CodeBuddy CN**, **Qoder**, **Trae**, **TraeWork**, **Trae CN**, **TraeWork CN**, **Zed**, **ZCode**를 지원하며, 다중 계정·다중 인스턴스 병렬 실행을 제공합니다.
@@ -18,33 +18,6 @@
 🇺🇸 English · 🇨🇳 简体中文 · 繁體中文 · 🇯🇵 日本語 · 🇩🇪 Deutsch · 🇪🇸 Español · 🇫🇷 Français · 🇮🇹 Italiano · 🇰🇷 한국어 · 🇧🇷 Português · 🇷🇺 Русский · 🇹🇷 Türkçe · 🇵🇱 Polski · 🇨🇿 Čeština · 🇸🇦 العربية · 🇻🇳 Tiếng Việt · 🇮🇩 Bahasa Indonesia
 
 **공식 지원 플랫폼**: macOS, Windows, Linux.
-
----
-
-## 스폰서
-
-<table>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://apikey.fun/register?aff=COCKPIT">
-        <img src="src/assets/icons/apikey-fun.png" alt="APIKEY.FUN" width="72" />
-      </a>
-    </td>
-    <td>
-      <a href="https://apikey.fun/register?aff=COCKPIT"><strong>APIKEY.FUN</strong></a>은(는) 기업과 개인 개발자를 위해 안정적이고 효율적이며 저렴한 AI 모델 API 연동을 제공하는 전문 기업급 서비스입니다. Claude, OpenAI, Gemini 등 주요 인기 모델을 지원하며, 가격은 공식 가격의 7%까지 저렴합니다. 이 프로젝트의 <a href="https://apikey.fun/register?aff=COCKPIT"><strong>전용 링크</strong></a>로 가입하면 <strong>충전 시 5% 할인</strong>을 상시 받을 수 있습니다.
-    </td>
-  </tr>
-  <tr>
-    <td width="120" align="center">
-      <a href="https://roxybrowser.cn?code=0326VTDA">
-        <img src="src/assets/icons/roxybrowser.jpg" alt="RoxyBrowser" width="96" />
-      </a>
-    </td>
-    <td>
-      <a href="https://roxybrowser.cn?code=0326VTDA"><strong>RoxyBrowser</strong></a>는 다중 계정 운영과 AI 자동화 시나리오를 위한 지문 브라우저로, 독립적인 브라우저 지문 환경, Cookie / 저장소 격리, Roxy 네이티브 주거용 IP, 팀 협업, API / MCP 자동화를 지원합니다. AI 계정 매트릭스 관리, 계정 연관 위험 감소, 장기 사용 안정성 향상에 적합합니다. Cockpit <a href="https://roxybrowser.cn?code=0326VTDA"><strong>초대 링크</strong></a>로 가입 또는 구매하면 팬 할인 10%를 받을 수 있습니다.
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -345,59 +318,9 @@ ZCode 인스턴스를 Electron 사용자 데이터, 세션 데이터, ZCode 데�
 
 ## 설치 가이드 (Installation)
 
-### 옵션 A: 직접 다운로드 (권장)
+이 저장소의 **Releases**에서 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`을 다운로드하세요. 압축을 풀고 실행 파일을 엽니다. Windows 10/11 x64 및 Microsoft Edge WebView2 Runtime이 필요합니다. 릴리스에는 `SHA256SUMS.txt`가 포함되어 있습니다.
 
-[GitHub Releases](https://github.com/jlcodes99/cockpit-tools/releases) 에서 사용 중인 시스템에 맞는 설치 패키지를 받으십시오:
-
-*   **macOS**: `.dmg` (Apple Silicon 및 Intel)
-*   **Windows**: `.msi`(권장), `.exe`, 또는 `x64-portable.zip`(압축 해제 후 바로 실행)
-
-Windows 휴대용 ZIP을 압축 해제한 뒤 포함된 `Cockpit Tools.exe`(또는 동명의 주 실행 파일)를 그대로 실행하십시오. Windows 10/11에 Microsoft Edge WebView2 Runtime이 필요합니다. 계정과 설정은 현재 Windows 사용자의 데이터 디렉터리에 저장되며 ZIP 폴더와 함께 이동하지 않습니다.
-*   **Linux**: `.deb` (Debian/Ubuntu), `.rpm` 또는 `.AppImage`
-
-### 옵션 B: Homebrew로 설치 (macOS)
-
-> Homebrew가 설치되어 있어야 합니다.
-
-```bash
-brew tap jlcodes99/cockpit-tools https://github.com/jlcodes99/cockpit-tools
-brew install --cask cockpit-tools
-```
-
-macOS에서 "앱이 손상되었습니다" 경고가 표시되면 `--no-quarantine` 옵션으로 설치할 수도 있습니다:
-
-```bash
-brew install --cask --no-quarantine cockpit-tools
-```
-
-Homebrew에서 이미 앱이 있다고 알린다면(예: `already an App at '/Applications/Cockpit Tools.app'`), 기존 앱을 삭제한 뒤 다시 설치하십시오:
-
-```bash
-rm -rf "/Applications/Cockpit Tools.app"
-brew install --cask cockpit-tools
-```
-
-또는 기존 앱을 강제로 덮어써서 설치할 수 있습니다:
-
-```bash
-brew install --cask --force cockpit-tools
-```
-
-### 🛠️ 문제 해결 (Troubleshooting)
-
-#### macOS에서 "앱이 손상되어 열 수 없습니다"라고 표시되나요?
-macOS의 보안 메커니즘 때문에 App Store에서 내려받지 않은 앱은 이 경고를 표시할 수 있습니다. 현재 오픈소스 공개 방식은 아직 Apple Developer ID 서명과 공증을 사용하지 않아, 일부 macOS 버전에서는 더 엄격한 Gatekeeper 안내가 표시됩니다. 아래 방법으로 빠르게 해결할 수 있습니다:
-
-1.  **명령행 수정** (권장):
-    터미널을 열고 다음 명령을 실행하십시오:
-    ```bash
-    sudo xattr -rd com.apple.quarantine "/Applications/Cockpit Tools.app"
-    ```
-    > **참고**: 앱 이름을 변경했다면 명령의 경로도 함께 수정하십시오.
-
-2.  **또는**: "시스템 설정" → "개인정보 보호 및 보안"에서 "그래도 열기"를 클릭하십시오.
-
----
+업데이트는 이 저장소에서 수동으로 다운로드하세요. 다른 운영체제에서는 아래의 소스 빌드 안내를 참고하세요.
 
 ## 개발 및 빌드
 
@@ -442,14 +365,6 @@ Telegram 대화 그룹 참여: [그룹 참여하기](https://t.me/+Y8gMv4SlZUU2M
 | QQ 그룹 | 위챗(개인) |
 | :---: | :---: |
 | <img src="docs/images/qq_group_20260404_183718.png" width="200" /> | <img src="docs/images/wechat_info.jpg" width="200" /> |
-
----
-
-## 후원
-
-이 프로젝트가 도움이 되셨다면 후원으로 응원해 주시면 감사하겠습니다: [☕ 후원하기](docs/DONATE.en.md)
-
-작은 후원 하나하나가 오픈소스 개발을 지탱합니다. 감사합니다!
 
 ---
 
