@@ -360,7 +360,7 @@ Notes:
 
 ## Installation Guide
 
-Open **Releases** in this repository and download `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`. Extract the folder and open the executable. The portable build requires Windows 10/11 x64 and Microsoft Edge WebView2 Runtime. The release includes `SHA256SUMS.txt`.
+Open **Releases** in this repository and download `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`. Extract it into a local folder such as Downloads, then open `cockpit-tools.exe`. The portable build requires Windows 10/11 x64 and Microsoft Edge WebView2 Runtime. The release includes `SHA256SUMS.txt`.
 
 Get updates manually from this repository. See the build section below for other systems.
 

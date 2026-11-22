@@ -357,7 +357,7 @@ Grok CLI 默认实例通常直接沿用官方 `~/.grok` 目录，启动时不设
 
 ## 安装指南 (Installation)
 
-打开本仓库的 **Releases** 下载 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`。解压后双击里面的 EXE。Windows 10/11 x64 需要 Microsoft Edge WebView2 Runtime。发布页同时提供 `SHA256SUMS.txt`。
+打开本仓库的 **Releases** 下载 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`。解压到本机的下载或文档目录，再双击 `cockpit-tools.exe`。Windows 10/11 x64 需要 Microsoft Edge WebView2 Runtime。发布页同时提供 `SHA256SUMS.txt`。
 
 更新请从本仓库的 Releases 手动获取。其他系统可以按下文从源码构建。
 
