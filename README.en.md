@@ -4,6 +4,8 @@ A community edition without promotion, based on [Cockpit Tools v1.4.2](https://g
 
 On **Windows 10/11 x64**, download `Cockpit.Tools.Clean_1.4.2_x64-portable.zip` from **Releases**, extract it, and open `cockpit-tools.exe`.
 
+Share the deployment page with an agent that can operate the target Windows desktop to detect or install Antigravity and apply Simplified Chinese. [Antigravity setup and flowchart (Chinese)](docs/antigravity-setup.md)
+
 English · [Portuguese (BR)](README.pt-br.md) · [한국어](README.ko.md) · [简体中文](README.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/jlcodes99/cockpit-tools?style=flat&color=gold)](https://github.com/jlcodes99/cockpit-tools)

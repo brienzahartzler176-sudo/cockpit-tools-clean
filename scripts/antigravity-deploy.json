@@ -1,0 +1,15 @@
+{
+  "version": "2.34.0",
+  "installerUrl": "https://storage.googleapis.com/antigravity-public/antigravity-hub/2.34.0-5887025308631040/windows-x64/Antigravity-x64.exe",
+  "installerSha256": "7c34f5aecbb269a182b12f63fd8f4f7e3bb4a893f23490d99735b137a7e881bd",
+  "executableSha256": "e6e079e99befbfe2786e7587a480117772e5ca974d0169f37e6dc996e0294858",
+  "patchVersion": "3.3.60",
+  "patchRevision": "3cf80cbb42c4d08acb067621ead9c4be9a2c76c8",
+  "patchUrl": "https://codeload.github.com/yiheng8023/antigravity-chinese/zip/3cf80cbb42c4d08acb067621ead9c4be9a2c76c8",
+  "patchSha256": "0715b4ee6ff1abc9488e0a3fe11329fcdf731b7ae046c49bad1d957cfd9daf9b",
+  "originalAsarSha256": "8934adef0622c9271c92eea950a71848764a66f7b10023ccbd82e54b959adb0e",
+  "patchedAsarSha256": "5cf256b046b697788dd3d0a460927c632df3d114d7659f34d838b92356a81225",
+  "nodeVersion": "24.18.0",
+  "nodeUrl": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip",
+  "nodeSha256": "0ae68406b42d7725661da979b1403ec9926da205c6770827f33aac9d8f26e821"
+}
