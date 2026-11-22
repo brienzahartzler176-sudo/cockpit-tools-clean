@@ -2,9 +2,9 @@
 
 社区维护的无推广版，基于 [Cockpit Tools v1.4.2](https://github.com/jlcodes99/cockpit-tools/tree/v1.4.2)。 [NOTICE](NOTICE.md)
 
-**Windows 10/11 x64** 用户可在本仓库的 **Releases** 下载 `Cockpit.Tools.Clean_1.4.2_x64-portable.zip`，解压后运行 `cockpit-tools.exe`。
+把部署页发给能操作目标电脑的 Agent，让它先识别系统，再检测、安装或打开反重力和 Cockpit Tools Clean。[部署入口与流程图](docs/antigravity-setup.md)
 
-需要同时安装反重力和简体中文时，把部署页直接发给能操作目标 Windows 电脑的 Agent。[反重力部署 SOP 与流程图](docs/antigravity-setup.md)
+**Windows 10/11 x64** 可从 Releases 下载纯净版便携包，解压后打开 `cockpit-tools.exe`。[Windows 便携包](https://github.com/brienzahartzler176-sudo/cockpit-tools-clean/releases/latest)
 
 [English](README.en.md) · [Portuguese (BR)](README.pt-br.md) · [한국어](README.ko.md) · 简体中文
 
